@@ -1,0 +1,14 @@
+# Java class files
+*.class
+
+# CSV results
+*.csv
+
+# IDE and OS files
+.DS_Store
+Thumbs.db
+
+# JDK installers and extracted JDK folders
+*.exe
+oracleJdk-26/
+jdk-26_windows-x64_bin.exe
