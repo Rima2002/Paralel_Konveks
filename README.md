@@ -1,4 +1,6 @@
-ConvexPolygonParallel — Kullanım ve teslim talimatları (Türkçe)
+Paralel Konveks Çokgen Kontrolü — Java performans ölçümü ve Amdahl hesaplaması
+
+Bu GitHub deposu, rastgele nokta dizisinden oluşturulan bir çokgenin konveks olup olmadığını paralel olarak test eden bir Java programı içerir. Program aynı zamanda farklı iş parçacığı sayıları için çalışma süresini ölçer, hızlanmayı (speedup) hesaplar ve Amdahl yasası için seri bölüm oranını gösterir.
 
 Açıklama
 - Bu program bir nokta dizisinin (x,y) koordinatlarına göre çokgenin konveks olup olmadığını paralel olarak kontrol eder.
