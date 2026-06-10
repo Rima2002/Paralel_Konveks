@@ -1,8 +1,17 @@
 # Java class files
 *.class
 
-# CSV results
+# CSV results and runtime logs
 *.csv
+*.log
+
+# Project/report exports
+*.docx
+*.png
+
+# Build output folders
+out/
+build/
 
 # IDE and OS files
 .DS_Store
