@@ -1,18 +1,18 @@
 # Paralel Konveks Kontrol Projesi
 
-Bu proje, verilen bir cokgenin konveks olup olmadigini Java thread'leri ile paralel olarak kontrol eder. Program ayrica farkli thread sayilari icin calisma suresini olcer, hizlanma degerini hesaplar ve Amdahl yasasina gore seri bolum orani tahmini uretir.
+Bu proje, verilen bir çokgenin konveks olup olmadığını Java thread'leri ile paralel olarak kontrol eder. Program ayrıca farklı thread sayıları için çalışma süresini ölçer, hızlanma değerini hesaplar ve Amdahl yasasına göre seri bölüm oranı tahmini üretir.
 
-## Icerik
+## İçerik
 
-- `Main.java`: Paralel konvekslik kontrolu, kullanici girisi ve benchmark kodu.
-- `README.md`: Derleme, calistirma ve proje aciklamalari.
+- `Main.java`: Paralel konvekslik kontrolü, kullanıcı girişi ve benchmark kodu.
+- `README.md`: Derleme, çalıştırma ve proje açıklamaları.
 
 ## Gereksinimler
 
-- Java JDK 8 veya uzeri
+- Java JDK 8 veya üzeri
 - Windows cmd, PowerShell veya herhangi bir terminal
 
-Java kurulumunu kontrol etmek icin:
+Java kurulumunu kontrol etmek için:
 
 ```cmd
 javac -version
@@ -21,23 +21,23 @@ java -version
 
 ## Derleme
 
-Windows cmd veya PowerShell icinde proje klasorunde su komutu calistirin:
+Windows cmd veya PowerShell içinde proje klasöründe şu komutu çalıştırın:
 
 ```cmd
 javac -encoding UTF-8 Main.java
 ```
 
-Derleme basarili olursa `Main.class` ve ic siniflara ait `.class` dosyalari olusur.
+Derleme başarılı olursa `Main.class` ve iç sınıflara ait `.class` dosyaları oluşur.
 
-## Calistirma
+## Çalıştırma
 
 ```cmd
 java Main
 ```
 
-Program once kullanicidan cokgen noktalarini ister. Noktalar `x y` veya `x,y` biciminde girilebilir.
+Program önce kullanıcıdan çokgen noktalarını ister. Noktalar `x y` veya `x,y` biçiminde girilebilir.
 
-Ornek giris:
+Örnek giriş:
 
 ```text
 Nokta sayisi : 4
@@ -47,23 +47,23 @@ Nokta sayisi : 4
 4. nokta : 0 1
 ```
 
-Bu ornek kare oldugu icin sonuc `CONVEX` olur.
+Bu örnek kare olduğu için sonuç `CONVEX` olur.
 
-## Benchmark Argumanlari
+## Benchmark Argümanları
 
-Program kullanici girisinden sonra otomatik olarak Amdahl benchmark'i calistirir. Varsayilan degerler:
+Program kullanıcı girişinden sonra otomatik olarak Amdahl benchmark'ı çalıştırır. Varsayılan değerler:
 
 - `pointCount`: `500000`
 - `runs`: `5`
 - `threadCounts`: `1,2,4,8`
 
-Bu degerler komut satirindan degistirilebilir:
+Bu değerler komut satırından değiştirilebilir:
 
 ```cmd
 java Main <pointCount> <runs> <threadCounts> [--csv=dosya.csv]
 ```
 
-Ornek:
+Örnek:
 
 ```cmd
 java Main 100000 5 1,2,4,8 --csv=sonuclar.csv
@@ -71,30 +71,30 @@ java Main 100000 5 1,2,4,8 --csv=sonuclar.csv
 
 Bu komut:
 
-- 100000 noktali yapay bir konveks cokgen olusturur.
-- Her thread sayisi icin 5 tekrar yapar.
-- `1`, `2`, `4` ve `8` thread icin sure ve hizlanma degerlerini hesaplar.
-- Sonuclari `sonuclar.csv` dosyasina yazar.
+- 100000 noktalı yapay bir konveks çokgen oluşturur.
+- Her thread sayısı için 5 tekrar yapar.
+- `1`, `2`, `4` ve `8` thread için süre ve hızlanma değerlerini hesaplar.
+- Sonuçları `sonuclar.csv` dosyasına yazar.
 
-## Algoritma Ozeti
+## Algoritma Özeti
 
-Konvekslik kontrolu, ardisik uc noktanin cross product isaretine bakilarak yapilir. Bir cokgen konvekstir diyebilmek icin tum sifir olmayan donus isaretlerinin ayni yonde olmasi gerekir.
+Konvekslik kontrolü, ardışık üç noktanın cross product işaretine bakılarak yapılır. Bir çokgen konvekstir diyebilmek için tüm sıfır olmayan dönüş işaretlerinin aynı yönde olması gerekir.
 
-Paralel calismada:
+Paralel çalışmada:
 
-1. Noktalar thread sayisina gore parcalara ayrilir.
-2. Her thread kendi araligindaki donus isaretlerini kontrol eder.
+1. Noktalar thread sayısına göre parçalara ayrılır.
+2. Her thread kendi aralığındaki dönüş işaretlerini kontrol eder.
 3. Bir thread konveks olmayan durum bulursa ortak durdurma sinyalini aktif eder.
-4. Ana thread, tum thread sonuclarini birlestirerek nihai karari verir.
+4. Ana thread, tüm thread sonuçlarını birleştirerek nihai kararı verir.
 
-## Cikti
+## Çıktı
 
-Program iki bolum halinde cikti verir:
+Program iki bölüm halinde çıktı verir:
 
-1. Kullanicinin girdigi cokgen icin konvekslik sonucu.
+1. Kullanıcının girdiği çokgen için konvekslik sonucu.
 2. Amdahl benchmark tablosu.
 
-Ornek tablo:
+Örnek tablo:
 
 ```text
       Thread |    Sure (ms) | Hizlanma |    Tahmini F
@@ -105,6 +105,6 @@ Ornek tablo:
 
 ## Notlar
 
-- `Main.java` dosya adi degistirilmemelidir; cunku kaynak kodda `public class Main` tanimlidir.
-- Daha kararli benchmark sonuclari icin `runs` degeri artirilabilir.
-- Cok buyuk `pointCount` degerleri daha anlamli paralel performans olcumu saglar.
+- `Main.java` dosya adı değiştirilmemelidir; çünkü kaynak kodda `public class Main` tanımlıdır.
+- Daha kararlı benchmark sonuçları için `runs` değeri artırılabilir.
+- Çok büyük `pointCount` değerleri daha anlamlı paralel performans ölçümü sağlar.
