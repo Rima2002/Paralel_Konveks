@@ -7,6 +7,12 @@ Bu proje, verilen bir çokgenin konveks olup olmadığını Java thread'leri ile
 - `Main.java`: Paralel konvekslik kontrolü, kullanıcı girişi ve benchmark kodu.
 - `README.md`: Derleme, çalıştırma ve proje açıklamaları.
 - [Demo video](https://www.youtube.com/watch?v=l_IC5yJNLsQ)
+
+## Proje Ekibi
+
+- Rima Farah Eleuch - 21360859216
+- İrem Aytaş - 21360859018
+
 ## Gereksinimler
 
 - Java JDK 8 veya üzeri
