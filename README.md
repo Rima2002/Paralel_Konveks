@@ -29,7 +29,9 @@ javac -encoding UTF-8 Main.java
 
 Derleme başarılı olursa `Main.class` ve iç sınıflara ait `.class` dosyaları oluşur.
 
-## Çalıştırma
+## PROGRAMIN ÇALIŞTIRILMASI
+
+Programı derledikten sonra aynı klasörde şu komutu çalıştırın:
 
 ```cmd
 java Main
